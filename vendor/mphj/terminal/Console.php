@@ -24,10 +24,12 @@ class Console{
 
   public static function start($args){
     if ($args == null || !is_array($args)){
-      echo Response::getString('Command (' . $args[0] . ') not found!', CliColor::F_RED) . "\n";
+      echo Response::getString('Command not found!', CliColor::F_RED) . "\n";
+      return;
     }
     if (!isset($args[0])){
-      echo Response::getString('Command (' . $args[0] . ') not found!', CliColor::F_RED) . "\n";
+      echo Response::getString('Command not found!', CliColor::F_RED) . "\n";
+      return;
     }
     foreach (self::$commands as $key => $value) {
       if ($value->is($args[0])){

@@ -5,6 +5,7 @@ function mphj_import($arr){
     if (substr($value, -1) == "*"){
       $dir = str_replace("*", "", $value);
       $dir = str_replace(".", "/", $dir);
+      $dir = str_replace("!", "..", $dir);
       mphj_import_dir($dir);
     }
   }
@@ -29,6 +30,11 @@ function mphj_import_file($file){
   $len = substr_count($file, "/") - 1;
   $file = str_replace(".", "/", $file, $len);
   require_once $file . ".php";
+}
+
+
+function mphj_contains($a, $b){
+  return strpos($a, $b) !== false;
 }
 
 ?>

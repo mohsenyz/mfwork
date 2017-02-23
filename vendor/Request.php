@@ -1,11 +1,12 @@
 <?php
 
 namespace App;
+use stdClass;
+class Request extends stdClass{
 
-class Request{
-
-  public static $req = null;
+  private static $req = null;
   private static $server = null;
+  private static $params = null;
 
   public static function init(){
     self::$server = $_SERVER;
@@ -30,6 +31,37 @@ class Request{
     if (self::has($name))
       return self::$req[$name];
     throw new Exception("input name " . $name . " doesnt exists!");
+  }
+
+
+  public static function setParams($par){
+    self::$params = $par;
+  }
+
+
+  public static function getParams(){
+    return self::$params;
+  }
+
+  public static function getParam($name){
+    if (self::hasParam($name))
+      return self::$params[$name];
+    throw new Exception("parameter name " . $name . " doesnt exists!");
+  }
+
+
+  public static function addParam($name, $value){
+    self::$params[$name] = $value;
+  }
+
+
+  public static function hasParam($name){
+    return isset(self::$params[$name]);
+  }
+
+
+  public static function all(){
+    return self::$req;
   }
 }
 

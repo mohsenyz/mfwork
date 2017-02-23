@@ -33,6 +33,13 @@ class Response{
 
 
 
+
+  public static function redirect($url){
+    header('Location: ' . $url);
+  }
+
+
+
   private static function sendStatus($status){
     header('HTTP/1.1 ' . $status, true, $status);
   }

@@ -41,7 +41,7 @@ class AltoRouter {
 		$this->setBasePath($basePath);
 		$this->addMatchTypes($matchTypes);
 	}
-	
+
 	/**
 	 * Retrieves all routes.
 	 * Useful if you want to process or display routes.
@@ -98,9 +98,9 @@ class AltoRouter {
 	 * @param string $name Optional name of this route. Supply if you want to reverse route this url in your application.
 	 * @throws Exception
 	 */
-	public function map($method, $route, $target, $name = null) {
+	public function map($method, $route, $target, $name = null, $middleware = null) {
 
-		$this->routes[] = array($method, $route, $target, $name);
+		$this->routes[] = array($method, $route, $target, $name, $middleware);
 
 		if($name) {
 			if(isset($this->namedRoutes[$name])) {
@@ -133,7 +133,7 @@ class AltoRouter {
 
 		// Replace named parameters
 		$route = $this->namedRoutes[$routeName];
-		
+
 		// prepend base path to route url again
 		$url = $this->basePath . $route;
 
@@ -189,7 +189,7 @@ class AltoRouter {
 		}
 
 		foreach($this->routes as $handler) {
-			list($methods, $route, $target, $name) = $handler;
+			list($methods, $route, $target, $name, $middleware) = $handler;
 
 			$method_match = (stripos($methods, $requestMethod) !== false);
 
@@ -226,7 +226,8 @@ class AltoRouter {
 				return array(
 					'target' => $target,
 					'params' => $params,
-					'name' => $name
+					'name' => $name,
+					'middleware' => $middleware
 				);
 			}
 		}

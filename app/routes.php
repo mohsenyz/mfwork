@@ -3,6 +3,7 @@ use App\Request;
 
 Route::get('/', function(){
   echo "ali";
+  Response::redirect("http://google.com/");
 });
 
 
@@ -15,9 +16,8 @@ Route::get('/amoo', function(){
 });
 
 
-Route::get('/amoo/[:id]/[:hello]', function($all, $hh){
-  echo "amoo" . $all . "<br>" . $hh;
-});
+
+Route::get('/amoo/[:id]/[:hello]', "Test@ali", ["admin_route"]);
 
 
 ?>

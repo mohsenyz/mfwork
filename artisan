@@ -1,13 +1,11 @@
 <?php
-require_once 'vendor/mphj/core/helpers.php';
+require __DIR__ . "/vendor/loader.php";
+require __DIR__ . "/vendor/apploader.php";
 mphj_import([__DIR__ . '.vendor.mphj.terminal.*', __DIR__ . '.vendor.mphj.terminal.commands.*', __DIR__ . '.app.terminal.commands.*']);
-
 
 use App\Terminal\Console;
 
-
 //first paramter is always artisan do delete that
-
 unset($argv[0]);
 $argv = array_values($argv);
 Console::start($argv);
