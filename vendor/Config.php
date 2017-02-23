@@ -22,6 +22,11 @@ class Config{
     throw new Exception('Error: middleware name ' . $name . ' not found');
   }
 
+
+  public static function hasMiddleware($name){
+    return isset(self::$middlewares[$name]);
+  }
+
   public static function init(){
     self::$middlewares = require __DIR__ . '/../app/confs/middleware.php';
   }

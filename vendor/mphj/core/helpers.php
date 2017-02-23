@@ -37,4 +37,16 @@ function mphj_contains($a, $b){
   return strpos($a, $b) !== false;
 }
 
+
+
+function mphj_add_line_after_line($file, $line, $pos){
+  $contents = file($file, FILE_IGNORE_NEW_LINES);
+  if($pos > sizeof($contents)) {
+    $pos = sizeof($contents) + 1;
+  }
+  array_splice($contents, $pos - 1, 0, array($line));
+  $contents = implode("\n", $contents);
+  file_put_contents($file, $contents);
+}
+
 ?>

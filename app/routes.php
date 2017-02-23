@@ -17,7 +17,7 @@ Route::get('/amoo', function(){
 
 
 
-Route::get('/amoo/[:id]/[:hello]', "Test@ali", ["admin_route"]);
+Route::get('/amoo/[:id]/[:hello]', "Test@ali");
 
 
 ?>

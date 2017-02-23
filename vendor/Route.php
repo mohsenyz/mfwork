@@ -68,7 +68,7 @@ class Route{
         }
       }
       $middlewareClass = Config::middleware($middlewareName);
-      $result = forward_static_call_array(array($middlewareClass, 'check'), $params);
+      $result = call_user_func_array(array($middlewareClass, 'check'), $params);
       if (!$result)
         $isValid = false;
     }
