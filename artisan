@@ -1,6 +1,6 @@
 <?php
 require_once 'vendor/mphj/core/helpers.php';
-mphj_import([__DIR__ . '.vendor.mphj.terminal.*', __DIR__ . '.vendor.mphj.terminal.commands.*']);
+mphj_import([__DIR__ . '.vendor.mphj.terminal.*', __DIR__ . '.vendor.mphj.terminal.commands.*', __DIR__ . '.app.terminal.commands.*']);
 
 
 use App\Terminal\Console;

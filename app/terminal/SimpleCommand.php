@@ -6,8 +6,15 @@ use App\Terminal\Console;
 use App\Terminal\Args;
 
 
+/**
+  * CommadLine command
+  */
 
-Console::on("serv", function($_arg){
+
+Console::on("simplecommand", function($_arg){
+
+  /*
+  ---------- SIMPLE ARGUMNET HANDLING TUTORIAL ----------
   $GLOBALS['arg'] = [
     'host' => 'localhost',
     'port' => '8080'
@@ -18,12 +25,11 @@ Console::on("serv", function($_arg){
 
   $arg = $GLOBALS['arg'];
 
+  */
 
-  echo Response::getString('MFWork is starting on port ' . $arg['port'] . '!', CliColor::F_GREEN) . "\n\n";
-  $output = @exec('php -S ' . $arg['host'] . ':' . $arg['port'], $o, $return);
-  if ($return){
-    echo "\n" . Response::getString('MFWork is not running :-(', CliColor::F_RED) . "\n";
-  }
+
+  echo Response::getString('Be happy :-/, it is working :-)', CliColor::F_GREEN) . "\n";
+
 });
 
 

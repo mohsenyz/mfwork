@@ -1,6 +1,7 @@
 <?php
 namespace App\Terminal;
 use App\Terminal\Command;
+use App\Terminal\Response;
 class Console{
   public static $commands = array();
   public static function on($commandName, $func){
@@ -22,13 +23,20 @@ class Console{
   }
 
   public static function start($args){
-    if (!isset($args[0])) $args[0] = 'help';
+    if ($args == null || !is_array($args)){
+      echo Response::getString('Command (' . $args[0] . ') not found!', CliColor::F_RED) . "\n";
+    }
+    if (!isset($args[0])){
+      echo Response::getString('Command (' . $args[0] . ') not found!', CliColor::F_RED) . "\n";
+    }
     foreach (self::$commands as $key => $value) {
       if ($value->is($args[0])){
         unset($args[0]);
-        $value->run(array_values($args));
+        $value->run(array(array_values($args)));
+        return;
       }
     }
+    echo Response::getString('Command (' . $args[0] . ') not found!', CliColor::F_RED) . "\n";
   }
 }
 
