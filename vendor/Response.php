@@ -14,11 +14,11 @@ class Response{
   public static function send($msg, $status = 200){
     if (is_string($msg)){
       echo $msg;
-      self::sendContentType(DataTypes.HTML);
+      self::sendContentType(DataTypes::HTML);
     }
     if (is_array($msg)){
       echo json_encode($msg);
-      self::sendContentType(DataTypes.JSON);
+      self::sendContentType(DataTypes::JSON);
     }
     self::sendStatus($status);
   }
@@ -27,7 +27,7 @@ class Response{
 
   public static function view($name, $params = null, $status = 200){
     echo View::make($name, $params);
-    self::sendContentType(DataTypes.HTML);
+    self::sendContentType(DataTypes::HTML);
     self::sendStatus($status);
   }
 

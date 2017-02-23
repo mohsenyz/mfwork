@@ -11,7 +11,7 @@ Route::get('/amoo', function(){
   $variable = "mohsen";
   if (Request::has("ali"))
     $variable = Request::input("ali");
-  Response::view('test', ['ali' => $variable]);
+  Response::view('test', ['ali' => (memory_get_peak_usage(true)/1024/1024)]);
 });
 
 

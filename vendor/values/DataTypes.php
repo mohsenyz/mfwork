@@ -1,6 +1,6 @@
 <?php
 namespace Http;
-class DataType{
+class DataTypes{
   const JSON = "application/json";
   const HTML = "text/html";
 }
