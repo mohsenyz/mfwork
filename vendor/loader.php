@@ -20,6 +20,10 @@ require_once 'Config.php';
 
 
 
+//importing gate scripts
+mphj_import([__DIR__ . '.mphj.gate.utils.*', __DIR__ . '.mphj.gate.*']);
+
+
 
 
 

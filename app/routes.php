@@ -1,9 +1,8 @@
 <?php
 use App\Request;
-
+use App\Gate\Zarinpal;
 Route::get('/', function(){
-  echo "ali";
-  Response::redirect("http://google.com/");
+  Response::redirect("");
 });
 
 
@@ -12,12 +11,13 @@ Route::get('/amoo', function(){
   $variable = "mohsen";
   if (Request::has("ali"))
     $variable = Request::input("ali");
-  Response::view('test', ['ali' => (memory_get_peak_usage(true)/1024/1024)]);
+  return ZarinPal::request(3000, "http://google.com", "Just a test")->redirect();
+  //Response::view('test', ['ali' => (memory_get_peak_usage(true)/1024/1024)]);
 });
 
 
 
-Route::get('/amoo/[:id]/[:hello]', "Test@ali");
+Route::get('/amoo/[:id]/[:hello]', 'Test@ali');
 
 
 ?>
