@@ -56,6 +56,7 @@ class Zarinpal{
       'Content-Length: ' . strlen($jsonData)
     ));
     $result = curl_exec($ch);
+    $err = curl_error($ch);
     curl_close($ch);
     $result = json_decode($result, true);
     if ($err) {

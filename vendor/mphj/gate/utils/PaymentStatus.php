@@ -9,9 +9,10 @@ class PaymentStatus{
   private $status;
   private $shStatus;
 
-  public __construct($refId = null, $status = null, $shStatus){
+  public function __construct($refId = null, $status = null, $shStatus){
     $this->refId = $refId;
     $this->status = $status;
+    $this->shStatus = $shStatus;
   }
 
   public function setRefId($refId){
