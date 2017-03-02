@@ -1,7 +1,8 @@
 <?php
 use App\Request;
+use App\Config;
 Route::get('/', function(){
-  Response::send("welcome");
+  Response::send(Config::get('cache.drivers.file.dir'));
 });
 
 

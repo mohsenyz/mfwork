@@ -8,9 +8,13 @@ class Config{
     $confName = __DIR__ . '/../app/confs/' . $arr[0] . '.php';
     if (file_exists($confName)){
       $vars = require $confName;
-      if (isset($vars[$arr[1]])){
-        return $vars[$arr[1]];
+      unset($arr[0]);
+      $arr = array_values($arr);
+      $val = $vars;
+      for($i = 0; $i < count($arr); $i++){
+        $val = $val[$arr[$i]];
       }
+      return $val;
     }
     return $def;
   }
