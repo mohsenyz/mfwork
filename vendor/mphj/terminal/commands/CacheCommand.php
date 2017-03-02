@@ -9,11 +9,7 @@ use App\Terminal\Args;
 
 Console::on("cache:clear", function($_arg){
 
-  $files = glob(__DIR__ . "/../../../../app/storage/cache/*");
-  foreach($files as $file){
-    if(is_file($file))
-      unlink($file);
-  }
+  deleteDir(__DIR__ . "/../../../../app/storage/cache");
 
 
   echo Response::getString('All of caches, have cleared!', CliColor::F_GREEN) . "\n";

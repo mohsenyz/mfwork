@@ -18,11 +18,11 @@ require_once 'BladeOne.php';
 require_once 'Views.php';
 require_once 'Config.php';
 require_once 'Medoo.php';
+require_once 'mphj/storage/Storage.php';
 
 
 
 
-//importing gate scripts
 mphj_import([__DIR__ . '.mphj.gate.utils.*', __DIR__ . '.mphj.gate.*']);
 
 

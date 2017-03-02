@@ -49,4 +49,18 @@ function mphj_add_line_after_line($file, $line, $pos){
   file_put_contents($file, $contents);
 }
 
+
+function deleteDir($dir){
+  $files = glob($dir . '/*');
+  foreach($files as $file){
+    if(is_file($file)){
+      unlink($file);
+    }
+    if (is_dir($file)){
+      deleteDir($file);
+      rmdir($file);
+    }
+  }
+}
+
 ?>

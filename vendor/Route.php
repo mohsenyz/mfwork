@@ -2,7 +2,7 @@
 use App\Request;
 use App\Config;
 class Route{
-  public static $router = null;
+  private static $router = null;
 
   public static function get($route, $function, $middleware = null){
     self::init();
