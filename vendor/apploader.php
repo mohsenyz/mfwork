@@ -9,4 +9,5 @@ mphj_import([__DIR__ . '.!.app.http.middleware.*']);
 
 App\Config::init();
 App\Storage::init();
+DB::init();
 ?>

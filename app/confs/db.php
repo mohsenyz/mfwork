@@ -1,18 +1,17 @@
 <?php
 
 return [
-
-
-  'DB_HOST' => 'localhost',
-  'DB_USERNAME' => 'root',
-  'DB_PASSWORD' => 'password',
-  'DB_NAME' => 'name'
-
-
-
-
-
-
+    'default' => 'mysql',
+    'charset' => 'utf8',
+    'drivers' => [
+        'mysql' => [
+            'type' => 'mysql',
+            'host' => 'localhost',
+            'username' => 'root',
+            'password' => 'root',
+            'db' => 'Taximeter'
+        ]
+    ]
 ];
 
 ?>

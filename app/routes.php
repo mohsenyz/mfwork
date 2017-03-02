@@ -2,7 +2,7 @@
 use App\Request;
 use App\Config;
 Route::get('/', function(){
-  Response::send(Config::get('cache.drivers.file.dir'));
+  Response::send(Config::get('cache.drivers.redis.host'));
 });
 
 
