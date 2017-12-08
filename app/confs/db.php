@@ -9,7 +9,7 @@ return [
             'host' => 'localhost',
             'username' => 'root',
             'password' => 'root',
-            'db' => 'Taximeter'
+            'db' => 'test'
         ]
     ]
 ];

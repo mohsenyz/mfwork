@@ -2,7 +2,7 @@
 use App\Request;
 use App\Config;
 Route::get('/', function(){
-  Response::send(Config::get('cache.drivers.redis.host'));
+  Response::send("Hello world + iran :sweat_smile:");
 });
 
 
